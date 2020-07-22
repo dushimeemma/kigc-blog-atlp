@@ -84,6 +84,10 @@ img {
 .z-index {
   z-index: 1;
 }
+/*auth footer*/
+.auth-footer {
+  height: 68vh;
+}
 /*form*/
 button {
   border: none;
@@ -283,6 +287,9 @@ footer {
   }
 }
 @media (max-width: 600px) {
+  .auth-footer {
+    min-height: 75vh;
+  }
   header {
     padding: 0;
     width: 100%;
