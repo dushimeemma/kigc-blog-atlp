@@ -278,6 +278,11 @@ main .auth-form {
   justify-content: start;
   align-items: center;
 }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*footer*/
 footer {
   background: var(--back-color);
