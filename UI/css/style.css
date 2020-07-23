@@ -44,7 +44,8 @@ img {
   border-radius: 0.5rem;
   color: var(--back-color);
   background: var(--text-color);
-  padding: 0.5rem;
+  padding: 0.25rem;
+  cursor: pointer;
 }
 .m {
   margin: 2rem;
@@ -83,6 +84,13 @@ img {
 }
 .z-index {
   z-index: 1;
+}
+/*icon images*/
+.icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 0.5rem;
 }
 /*auth footer*/
 .auth-footer {
@@ -265,6 +273,11 @@ main .auth-form {
   border-bottom: 1px solid var(--back-color);
   padding: 0.5rem;
 }
+.flex {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
 /*footer*/
 footer {
   background: var(--back-color);
@@ -329,6 +342,10 @@ footer {
   }
   main p {
     text-align: center;
+  }
+
+  .float-left {
+    float: left;
   }
   .main-dashboard {
     display: block;
