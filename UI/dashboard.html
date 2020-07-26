@@ -21,13 +21,26 @@
             <a href="index.html">KIGC Ltd</a>
           </div>
 
-          <nav>
-            <ul class="float-right">
-              <li>
-                Welcome
-                <a href="index.html" class="nav-link"
-                  ><strong>Dushime Emmanuel </strong>
-                </a>
+          <img
+            src="./images/menu.png"
+            alt="toggle"
+            class="m-icon i-class icon menu"
+            id="menu"
+          />
+
+          <nav id="nav">
+            <img
+              src="./images/close.jpg"
+              alt="close"
+              class="close"
+              id="close"
+            />
+            <ul>
+              <li class="text-capitalize">
+                <a href="dashboard.html">Welcome Dushime Emmanuel</a>
+              </li>
+              <li class="text-capitalize">
+                <a href="index.html">Logout</a>
               </li>
             </ul>
           </nav>
@@ -189,7 +202,8 @@
     </main>
     <!--footer-->
     <footer>
-      <p class="text-center">&copy; 2020. KIGC ltd.</p>
+      <p class="text-center" id="footer"></p>
     </footer>
+    <script src="./js/main.js"></script>
   </body>
 </html>
