@@ -114,6 +114,10 @@ button {
   font-weight: bold;
   cursor: pointer;
 }
+button:hover,
+button:focus {
+  border: 0;
+}
 .block {
   width: 102%;
 }
@@ -185,6 +189,10 @@ header .navbrand nav .nav-link {
 .fix-form {
   margin-bottom: 5rem;
   /* min-height: 100vh; */
+}
+input:focus,
+input:hover {
+  border: 1px solid var(--danger) !important;
 }
 /*main*/
 main {
@@ -308,6 +316,7 @@ main .auth-form {
   color: var(--danger);
   display: none;
 }
+
 /*footer*/
 footer {
   background: var(--back-color);
