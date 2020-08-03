@@ -50,6 +50,9 @@ img {
   padding: 0.25rem;
   cursor: pointer;
 }
+.pointer {
+  cursor: pointer;
+}
 .success {
   color: var(--success);
 }
@@ -285,6 +288,7 @@ main .auth-form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-column-gap: 2rem;
+  min-height: 80vh;
 }
 .main-dashboard .dashboard-section {
   border-right: 1px solid var(--back-color);
