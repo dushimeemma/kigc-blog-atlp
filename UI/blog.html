@@ -53,18 +53,13 @@
     </header>
     <!--main-->
     <main class="m-bottom">
-      <div class="container main-blog mb">
-        <article class="blog-content text-black border-radius p mt">
-          <h3 class="m-bottom capitalize">Post one</h3>
+      <div class="container main-blog mb" id="articles">
+        <!-- <article class="blog-content text-black border-radius p mt">
+          <h3 class="m-bottom capitalize"></h3>
           <p class="m-bottom">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-            quibusdam fugit at velit tenetur vitae consequuntur mollitia laborum
-            sequi accusamus? Itaque ullam vitae dignissimos molestiae alias
-            repudiandae, sint pariatur blanditiis velit vero explicabo nihil! Ea
-            inventore minus nemo labore dolorem, delectus qui mollitia natus
-            neque tenetur autem maiores velit deleniti.
+           
           </p>
-          <h6 class="text-center capitalize m-bottom">leave a comment</h6>
+          <h6 class="text-center capitalize m-bottom"></h6>
           <form>
             <div class="form-group">
               <textarea name="" id="" cols="10" rows="3">
@@ -133,13 +128,41 @@ Your Comment Here ...</textarea
             </div>
             <button class="float-right">Comment</button>
           </form>
-        </article>
+        </article> -->
       </div>
     </main>
     <!--footer-->
     <footer class="mt">
       <p class="text-center" id="footer"></p>
     </footer>
+    <!--  Firebase JS SDK  -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+    <!-- Firebase products -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <!-- Firebase database -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <!-- Firebase auth -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyD-lm5Q0AZj7uiZuOKaR9p0X_ycsIrSlaw',
+        authDomain: 'kigc-blog-atlp.firebaseapp.com',
+        databaseURL: 'https://kigc-blog-atlp.firebaseio.com',
+        projectId: 'kigc-blog-atlp',
+        storageBucket: 'kigc-blog-atlp.appspot.com',
+        messagingSenderId: '431213200581',
+        appId: '1:431213200581:web:cf1bd06d9f2ab5e5a81cac',
+        measurementId: 'G-GTS3GTVLHG',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <!--Custom script-->
     <script src="./js/main.js"></script>
+    <script src="./js/blog.js"></script>
   </body>
 </html>
