@@ -1,3 +1,5 @@
+//init auth firebase
+const auth = firebase.auth();
 //function to validate email
 function validateEmail(email) {
   let re = /\S+@\S+\.\S+/;
@@ -42,5 +44,22 @@ loginForm.addEventListener('submit', (e) => {
   if (passwordInput.value.length > 0 && passwordInput.value.length >= 8) {
     passwordInput.style.border = '1px solid var(--success)';
     passwordErrors.style.display = 'none';
+  }
+  if (
+    emailInput.value.length > 0 &&
+    validateEmail(emailInput.value) === true &&
+    passwordInput.value.length > 0 &&
+    passwordInput.value.length >= 8
+  ) {
+    auth
+      .signInWithEmailAndPassword(emailInput.value, passwordInput.value)
+      .then((cred) => {
+        window.location.href = 'dashboard.html';
+      })
+      .catch((err) => {
+        errors.style.display = 'block';
+        errors.innerText = `${err.message}`;
+        setTimeout(() => errors.remove(), 5000);
+      });
   }
 });

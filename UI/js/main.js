@@ -7,7 +7,7 @@ footer.innerHTML = `&copy; ${new Date().getFullYear()} KIGC Ltd.`;
 
 menu.addEventListener('click', onClick);
 closeBtn.addEventListener('click', onClose);
-window.addEventListener('click', outsideClose);
+//window.addEventListener('click', outsideClose);
 
 function onClick() {
   nav.style.display = 'block';
