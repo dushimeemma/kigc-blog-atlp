@@ -50,6 +50,12 @@ img {
   padding: 0.25rem;
   cursor: pointer;
 }
+.success {
+  color: var(--success);
+}
+.danger {
+  color: var(--danger);
+}
 .m {
   margin: 2rem;
 }

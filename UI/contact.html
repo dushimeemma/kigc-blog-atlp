@@ -71,6 +71,7 @@
           <h3 class="text-center capitalize m-bottom">
             Feel free to ask any question
           </h3>
+          <div class="errors" id="errors"></div>
           <form id="contact-form">
             <div class="form-group">
               <label for="email">Email Address</label>
@@ -100,6 +101,33 @@ Your Questions...</textarea
     <footer>
       <p class="text-center footer" id="footer"></p>
     </footer>
+    <!--  Firebase JS SDK  -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+    <!-- Firebase products -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <!-- Firebase database -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <!-- Firebase auth -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyD-lm5Q0AZj7uiZuOKaR9p0X_ycsIrSlaw',
+        authDomain: 'kigc-blog-atlp.firebaseapp.com',
+        databaseURL: 'https://kigc-blog-atlp.firebaseio.com',
+        projectId: 'kigc-blog-atlp',
+        storageBucket: 'kigc-blog-atlp.appspot.com',
+        messagingSenderId: '431213200581',
+        appId: '1:431213200581:web:cf1bd06d9f2ab5e5a81cac',
+        measurementId: 'G-GTS3GTVLHG',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <!--Custom script-->
     <script src="./js//main.js"></script>
     <script src="./js/validateContact.js"></script>
   </body>
