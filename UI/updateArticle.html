@@ -37,10 +37,12 @@
             />
             <ul>
               <li class="text-capitalize">
-                <a href="dashboard.html">Welcome Dushime Emmanuel</a>
+                <a href="dashboard.html"
+                  >Welcome <strong id="username"></strong
+                ></a>
               </li>
               <li class="text-capitalize">
-                <a href="index.html">Logout</a>
+                <a href="index.html" id="logout">Logout</a>
               </li>
             </ul>
           </nav>
@@ -48,10 +50,10 @@
       </div>
     </header>
     <!--main-->
-    <main>
+    <main class="fix-form">
       <div class="p auth-footer">
         <div class="container auth-form text-black p border-radius">
-          <a href="dashboard.html">
+          <a href="articles.html">
             <img
               src="./images/back.png"
               alt="back"
@@ -59,18 +61,19 @@
             />
           </a>
           <h3 class="text-center m-bottom capitalize">Update article</h3>
-          <form>
+          <div class="errors" id="errors"></div>
+          <form id="update-form">
             <div class="form-group">
               <label for="title">Title</label>
-              <input type="text" name="" id="" value="Post One" />
+              <input type="text" name="title" id="title" />
             </div>
             <div class="form-group">
               <label for="password">Body</label>
-              <textarea name="" id="" cols="10" rows="3">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit quibusdam....</textarea
-              >
+              <textarea name="body" id="body" cols="15" rows="5"></textarea>
             </div>
-            <button class="mt m-bottom block">Update Article</button>
+            <button class="mt m-bottom block" type="submit">
+              Update Article
+            </button>
           </form>
         </div>
       </div>
@@ -79,6 +82,35 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit quibusdam....</textarea
     <footer>
       <p class="text-center" id="footer"></p>
     </footer>
+    <!--  Firebase JS SDK  -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+    <!-- Firebase products -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <!-- Firebase database -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <!-- Firebase auth -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyD-lm5Q0AZj7uiZuOKaR9p0X_ycsIrSlaw',
+        authDomain: 'kigc-blog-atlp.firebaseapp.com',
+        databaseURL: 'https://kigc-blog-atlp.firebaseio.com',
+        projectId: 'kigc-blog-atlp',
+        storageBucket: 'kigc-blog-atlp.appspot.com',
+        messagingSenderId: '431213200581',
+        appId: '1:431213200581:web:cf1bd06d9f2ab5e5a81cac',
+        measurementId: 'G-GTS3GTVLHG',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <!--Custom script-->
     <script src="./js/main.js"></script>
+    <script src="./js/logout.js"></script>
+    <script src="./js/updateArticle.js"></script>
   </body>
 </html>
