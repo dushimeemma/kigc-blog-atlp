@@ -15,8 +15,8 @@ function onClick() {
 function onClose() {
   nav.style.display = 'none';
 }
-function outsideClose(e) {
+/*function outsideClose(e) {
   if (e.target != menu) {
     nav.style.display = 'none';
   }
-}
+}*/

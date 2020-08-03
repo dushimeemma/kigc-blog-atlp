@@ -181,6 +181,11 @@ header .navbrand nav a {
 header .navbrand nav .nav-link {
   text-transform: uppercase;
 }
+/*fix forms */
+.fix-form {
+  margin-bottom: 5rem;
+  /* min-height: 100vh; */
+}
 /*main*/
 main {
   width: 100%;
@@ -349,7 +354,7 @@ footer {
   header .navbrand nav {
     width: 50vw;
     display: none;
-    height: 50vh;
+    height: 60vh;
     background: var(--text-color);
     position: fixed;
     top: 0;
