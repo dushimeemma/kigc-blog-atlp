@@ -56,20 +56,23 @@
       <div class="p auth-footer">
         <div class="container auth-form text-black p border-radius">
           <h3 class="text-center m-bottom capitalize">Sign Up now</h3>
-          <form>
+          <form id="register-form">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" name="" id="" />
+              <input type="text" name="name" id="name" />
+              <div class="errors" id="nameErrors"></div>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" name="" id="" />
+              <input type="text" name="email" id="email" />
+              <div class="errors" id="emailErrors"></div>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" name="" id="" />
+              <input type="password" name="password" id="password" />
+              <div class="errors" id="passwordErrors"></div>
             </div>
-            <button class="mt m-bottom block">Sign Up</button>
+            <button class="mt m-bottom block" type="submit">Sign Up</button>
             <p class="text-center capitalize">
               already have an account?
               <a href="login.html" class="font text-black">Login</a>
@@ -83,5 +86,6 @@
       <p class="text-center" id="footer"></p>
     </footer>
     <script src="./js/main.js"></script>
+    <script src="./js/validateRegister.js"></script>
   </body>
 </html>

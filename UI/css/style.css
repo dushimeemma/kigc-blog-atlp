@@ -8,6 +8,9 @@
   --back-color: #000000;
   --text-color: #ffffff;
   --body-back: #93977d;
+  --primary: #0275d8;
+  --success: #5cb85c;
+  --danger: #d9534f;
 }
 body {
   font-weight: 'Roboto', sans-serif;
@@ -109,6 +112,7 @@ button {
   background: #5699bc;
   color: var(--back-color);
   font-weight: bold;
+  cursor: pointer;
 }
 .block {
   width: 102%;
@@ -292,6 +296,12 @@ main .auth-form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+/*validate forms*/
+.errors {
+  width: 100%;
+  color: var(--danger);
+  display: none;
 }
 /*footer*/
 footer {
