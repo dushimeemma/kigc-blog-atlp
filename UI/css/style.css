@@ -200,7 +200,9 @@ header .navbrand nav .nav-link {
   /* min-height: 100vh; */
 }
 input:focus,
-input:hover {
+input:hover,
+textarea:hover,
+textarea:focus {
   border: 1px solid var(--danger) !important;
 }
 /*main*/
