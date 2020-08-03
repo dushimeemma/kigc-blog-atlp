@@ -34,5 +34,5 @@ function onClickDelete(id) {
 }
 //update article
 function onClickUpdate(id) {
-  window.location.href = 'updateArticle.html?=' + id;
+  window.location.href = 'updateArticle.html?id=' + id;
 }
