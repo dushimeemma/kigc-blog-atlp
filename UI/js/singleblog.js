@@ -55,19 +55,24 @@ articleRef.on('value', (snapshot) => {
         setTimeout(() => errors.remove(), 5000);
         formComment.reset();
       } else {
-        firebase
-          .database()
-          .ref(`comments/${id}`)
-          .push()
-          .set({
-            comment: comment.value,
-          })
-          .then(() => {
-            errors.style.display = 'block';
-            errors.innerHTML = '<p class="success">comment send</p>';
-            setTimeout(() => errors.remove(), 5000);
-            formComment.reset();
-          });
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            firebase
+              .database()
+              .ref(`comments/${id}`)
+              .push()
+              .set({
+                comment: comment.value,
+                author: user.uid,
+              })
+              .then(() => {
+                errors.style.display = 'block';
+                errors.innerHTML = '<p class="success">comment send</p>';
+                setTimeout(() => errors.remove(), 5000);
+                formComment.reset();
+              });
+          }
+        });
       }
     });
     //show comments
@@ -78,10 +83,18 @@ articleRef.on('value', (snapshot) => {
         .database()
         .ref(`comments/${id}`)
         .on('child_added', (snapshot) => {
-          let p = document.createElement('p');
-          p.innerHTML = `&middot;${snapshot.val().comment}<hr/>`;
-          com.appendChild(p);
-          count++;
+          firebase.auth().onAuthStateChanged((user) => {
+            firebase
+              .database()
+              .ref(`users/${user.uid}`)
+              .on('value', (snapshotUser) => {
+                let p = document.createElement('p');
+                p.innerHTML = `&middot;${snapshot.val().comment} - by ${
+                  snapshotUser.val().firstName
+                } ${snapshotUser.val().lastName}<hr/>`;
+                com.appendChild(p);
+              });
+          });
         });
       document.querySelector('#view').addEventListener('click', (e) => {
         com.style.display = 'none';
