@@ -355,6 +355,10 @@ main .auth-form {
   border-bottom: 1px solid var(--back-color);
   padding: 0.5rem;
 }
+/*comment*/
+.comment {
+  display: none;
+}
 /*location*/
 .bottom-fixed {
   position: fixed;
