@@ -1,5 +1,7 @@
 //reference auth firebase database
 const auth = firebase.auth();
+const storage = firebase.storage();
+const db = firebase.database();
 //function to validate email
 function validateEmail(email) {
   let re = /\S+@\S+\.\S+/;
@@ -8,33 +10,49 @@ function validateEmail(email) {
 //get form element
 let registerForm = document.querySelector('#register-form');
 let errors = document.querySelector('#errors');
-//let nameInput = registerForm['name'];
+let fnameInput = registerForm['first-name'];
+let lnameInput = registerForm['last-name'];
 let emailInput = registerForm['email'];
 let passwordInput = registerForm['password'];
 
 //get errors div
-//let nameErrors = document.querySelector('#nameErrors');
+let fnameErrors = document.querySelector('#fnameErrors');
+let lnameErrors = document.querySelector('#lnameErrors');
 let emailErrors = document.querySelector('#emailErrors');
 let passwordErrors = document.querySelector('#passwordErrors');
+let file = {};
 
+//onchange first
+//registerForm['file'].addEventListener('change', (e) => {
+// file = e.target.files[0];
 //form validation
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (emailInput.value === '' || passwordInput.value === '') {
-    //  nameInput.style.border = '1px solid var(--danger)';
+  if (
+    fnameInput === '' ||
+    lnameInput == '' ||
+    emailInput.value === '' ||
+    passwordInput.value === ''
+  ) {
+    lnameInput.style.border = '1px solid var(--danger)';
+    fnameInput.style.border = '1px solid var(--danger)';
     emailInput.style.border = '1px solid var(--danger)';
     passwordInput.style.border = '1px solid var(--danger)';
-    nameErrors.style.display = 'block';
+    fnameErrors.style.display = 'block';
+    lnameErrors.style.display = 'block';
     emailErrors.style.display = 'block';
     passwordErrors.style.display = 'block';
-    //   nameErrors.innerText = 'name is required';
+    lnameErrors.innerText = 'last name is required';
+    fnameErrors.innerText = 'first name is required';
     emailErrors.innerText = 'email is required';
     passwordErrors.innerText = 'password is required';
   }
-  /* if (nameInput.value.length > 0) {
-    nameInput.style.border = '1px solid var(--success)';
-    nameErrors.style.display = 'none';
-  }*/
+  if (fnameInput.value.length > 0 || lnameInput.value.length > 0) {
+    fnameInput.style.border = '1px solid var(--success)';
+    lnameInput.style.border = '1px solid var(--success)';
+    fnameErrors.style.display = 'none';
+    lnameErrors.style.display = 'none';
+  }
   if (
     emailInput.value.length > 0 &&
     validateEmail(emailInput.value) === false
@@ -42,6 +60,7 @@ registerForm.addEventListener('submit', (e) => {
     emailInput.style.border = '1px solid var(--danger)';
     emailErrors.innerText = 'please enter a valid email';
   }
+
   if (emailInput.value.length > 0 && validateEmail(emailInput.value) === true) {
     emailInput.style.border = '1px solid var(--success)';
     emailErrors.style.display = 'none';
@@ -55,21 +74,24 @@ registerForm.addEventListener('submit', (e) => {
     passwordInput.style.border = '1px solid var(--success)';
     passwordErrors.style.display = 'none';
   }
-  if (
-    emailInput.value.length > 0 &&
-    validateEmail(emailInput.value) === true &&
-    passwordInput.value.length > 0 &&
-    passwordInput.value.length >= 8
-  ) {
-    auth
-      .createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
-      .then((cred) => {
-        window.location.href = 'dashboard.html';
-      })
-      .catch((err) => {
-        errors.style.display = 'block';
-        errors.innerText = `${err.message}`;
-        setTimeout(() => errors.remove(), 5000);
+  auth
+    .createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
+    .then((auth) => {
+      //storage.ref(`users/${auth.user.uid}/${file.name}`).put(file);
+      db.ref(`users/${auth.user.uid}`).set({
+        firstName: fnameInput.value,
+        lastName: lnameInput.value,
+        // image: file.name,
       });
-  }
+      errors.style.display = 'block';
+      errors.innerHTML =
+        '<p class="text-center success capitalize">User created successfully</p>';
+      window.location.href = 'dashboard.html';
+    })
+    .catch((err) => {
+      errors.style.display = 'block';
+      errors.innerHTML = `<p class="text-center danger capitalize">${err.message}</p>`;
+      setTimeout(() => errors.remove(), 5000);
+    });
 });
+//});

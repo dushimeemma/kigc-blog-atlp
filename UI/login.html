@@ -53,28 +53,27 @@
     </header>
     <!--main-->
     <main>
-      <div class="p auth-footer">
-        <div class="container auth-form text-black p border-radius">
-          <h3 class="text-center m-bottom capitalize">Sign In now</h3>
-          <div class="errors text-center" id="errors"></div>
-          <form id="login-form">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" name="email" id="email" />
-              <div id="emailErrors" class="errors"></div>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" />
-              <div id="passwordErrors" class="errors"></div>
-            </div>
-            <button class="mt m-bottom block" type="submit">Sign In</button>
-            <p class="text-center capitalize">
-              does not have an account?
-              <a href="register.html" class="font text-black">Sign Up</a>
-            </p>
-          </form>
-        </div>
+      <div class="container form text-black">
+        <h3 class="text-center mt mb capitalize">Sign In now</h3>
+        <hr />
+        <div class="errors text-center" id="errors"></div>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" />
+            <div id="emailErrors" class="errors"></div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+            <div id="passwordErrors" class="errors"></div>
+          </div>
+          <button class="btn mt" type="submit">Sign In</button>
+          <p class="text-center capitalize mt mb">
+            does not have an account?
+            <a href="register.html" class="font text-black">Sign Up</a>
+          </p>
+        </form>
       </div>
     </main>
     <!--footer-->

@@ -50,30 +50,27 @@
       </div>
     </header>
     <!--main-->
-    <main class="fix-form">
-      <div class="p auth-footer">
-        <div class="container auth-form text-black p border-radius">
-          <a href="dashboard.html">
-            <img
-              src="./images/back.png"
-              alt="back"
-              class="icon m-icon i-class"
-            />
-          </a>
-          <h3 class="text-center m-bottom capitalize">Add article</h3>
-          <div class="errors" id="errors"></div>
-          <form id="article-form">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" name="title" id="title" />
-            </div>
-            <div class="form-group">
-              <label for="password">Body</label>
-              <textarea name="body" id="body" cols="10" rows="3"></textarea>
-            </div>
-            <button class="mt m-bottom block" type="submit">Add Article</button>
-          </form>
-        </div>
+    <main>
+      <div class="container form text-black">
+        <a href="dashboard.html">
+          <img src="./images/back.png" alt="back" class="icon m-icon i-class" />
+        </a>
+        <h3 class="text-center m-bottom capitalize">Add article</h3>
+        <hr />
+        <div class="errors text-center" id="errors"></div>
+        <form id="article-form">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" />
+            <div class="errors" id="titleErrors"></div>
+          </div>
+          <div class="form-group">
+            <label for="password">Body</label>
+            <textarea name="body" id="body" cols="10" rows="3"></textarea>
+            <div class="errors" id="bodyErrors"></div>
+          </div>
+          <button class="mt btn mb" type="submit">Add Article</button>
+        </form>
       </div>
     </main>
     <!--footer-->

@@ -11,6 +11,7 @@
   --primary: #0275d8;
   --success: #5cb85c;
   --danger: #d9534f;
+  --form-background: #c4c4c4;
 }
 body {
   font-weight: 'Roboto', sans-serif;
@@ -19,6 +20,14 @@ body {
   line-height: 1.6em;
   background: var(--body-back);
   color: var(--text-color);
+}
+/*auth image*/
+.img-auth {
+  width: 200px;
+  height: 100px;
+  border-radius: 1rem;
+  margin: 2% auto;
+  cursor: pointer;
 }
 ul {
   list-style-type: none;
@@ -113,7 +122,7 @@ img {
   cursor: pointer;
 }
 /*form*/
-button {
+/*button {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -149,7 +158,48 @@ textarea {
 
 .m-bottom {
   margin-bottom: 1rem;
+}*/
+/*updated form css*/
+.form {
+  margin: 5% auto;
+  width: 60%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--form-background);
 }
+label {
+  display: block;
+}
+input,
+textarea,
+button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem;
+  border: 0;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  background: var(--primary);
+  color: var(--text-color);
+}
+button:hover,
+button:focus {
+  border: 0;
+}
+/*fix forms */
+.fix-form {
+  margin-bottom: 5rem;
+  /* min-height: 100vh; */
+}
+input:focus,
+input:hover,
+textarea:hover,
+textarea:focus {
+  border: 1px solid var(--danger) !important;
+}
+
 /*header*/
 header {
   background: var(--back-color);
@@ -194,21 +244,14 @@ header .navbrand nav a {
 header .navbrand nav .nav-link {
   text-transform: uppercase;
 }
-/*fix forms */
-.fix-form {
-  margin-bottom: 5rem;
-  /* min-height: 100vh; */
-}
-input:focus,
-input:hover,
-textarea:hover,
-textarea:focus {
-  border: 1px solid var(--danger) !important;
-}
+
 /*main*/
 main {
   width: 100%;
   position: relative;
+}
+main #articles button {
+  width: 100px !important;
 }
 main img {
   width: 100%;
@@ -254,13 +297,13 @@ main .contact-section {
 main .contact-aside {
   border-radius: 1rem;
   color: var(--back-color);
-  padding: 1rem 2rem 0rem 1rem;
+  padding: 2rem;
   background: #c4c4c4;
 }
-main .contact-aside button {
+/*main .contact-aside button {
   margin-top: 1rem;
   width: 105%;
-}
+}*/
 main .about-section img {
   border-radius: 1rem;
   width: 100%;

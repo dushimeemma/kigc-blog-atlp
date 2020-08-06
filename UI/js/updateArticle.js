@@ -1,3 +1,26 @@
+//init firebase auth
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    firebase
+      .database()
+      .ref(`users/${user.uid}`)
+      .on('value', (snapshot) => {
+        document.querySelector('#username').innerHTML = `${
+          snapshot.val().firstName
+        } ${snapshot.val().lastName}`;
+      });
+  } else {
+    window.location.href = 'login.html';
+  }
+});
+
+document.querySelector('#logout').addEventListener('click', (e) => {
+  e.preventDefault();
+  auth.signOut().then(() => {
+    window.location.href = 'login.html';
+  });
+});
 //ref to firebase db
 let db = firebase.database();
 //get the id of article

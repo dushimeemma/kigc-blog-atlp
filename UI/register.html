@@ -52,34 +52,46 @@
       </div>
     </header>
     <!--main-->
-    <main class="fix-form">
-      <div class="p auth-footer">
-        <div class="container auth-form text-black p border-radius">
-          <h3 class="text-center m-bottom capitalize">Sign Up now</h3>
-          <div class="errors text-center" id="errors"></div>
-          <form id="register-form">
-            <!--   <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" />
-              <div class="errors" id="nameErrors"></div>
-            </div>-->
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" name="email" id="email" />
-              <div class="errors" id="emailErrors"></div>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" />
-              <div class="errors" id="passwordErrors"></div>
-            </div>
-            <button class="mt m-bottom block" type="submit">Sign Up</button>
-            <p class="text-center capitalize">
-              already have an account?
-              <a href="login.html" class="font text-black">Login</a>
-            </p>
-          </form>
-        </div>
+    <main>
+      <div class="container text-black form">
+        <h3 class="text-center capitalize mt mb">Sign Up now</h3>
+        <hr />
+        <div class="errors text-center" id="errors"></div>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" name="fname" id="first-name" />
+            <div class="errors" id="fnameErrors"></div>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" name="lname" id="last-name" />
+            <div class="errors" id="lnameErrors"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" />
+            <div class="errors" id="emailErrors"></div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+            <div class="errors" id="passwordErrors"></div>
+          </div>
+          <!--   <div class="form-group">
+            <label for="file">Profile Image</label>
+            <input type="file" name="file" id="file" />
+            <div class="errors" id="fileErrors"></div>
+          </div> -->
+          <button type="submit" class="btn mt">Sign Up</button>
+          <p class="capitalize text-center mt mb">
+            Already have an account?<a
+              href="login.html"
+              class="capitalize text-black"
+              >Sign In</a
+            >
+          </p>
+        </form>
       </div>
     </main>
     <!--footer-->
@@ -95,6 +107,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
     <!-- Firebase auth -->
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <!-- Firebase storage -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
 
     <script>
       // Your web app's Firebase configuration

@@ -50,36 +50,31 @@
       </div>
     </header>
     <!--main-->
-    <main class="fix-form">
-      <div class="p auth-footer">
-        <div class="container auth-form text-black p border-radius">
-          <a href="articles.html">
-            <img
-              src="./images/back.png"
-              alt="back"
-              class="icon m-icon i-class"
-            />
-          </a>
-          <h3 class="text-center m-bottom capitalize">Update Profile</h3>
-          <div class="errors" id="errors"></div>
-          <form id="update-form" enctype="multipart/form-data">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" name="title" id="title" />
-            </div>
-            <div class="form-group">
-              <label for="password">Body</label>
-              <textarea name="body" id="body" cols="15" rows="5"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="file">Image</label>
-              <input type="file" name="file" id="file" />
-            </div>
-            <button class="mt m-bottom block" type="submit">
-              Update Article
-            </button>
-          </form>
-        </div>
+    <main>
+      <div class="container form text-black">
+        <a href="articles.html">
+          <img src="./images/back.png" alt="back" class="icon m-icon i-class" />
+        </a>
+        <h3 class="text-center m-bottom capitalize">Update Profile</h3>
+        <hr />
+        <div class="errors" id="errors"></div>
+        <form id="update-form">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" id="fname" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="lname" />
+          </div>
+          <!--  <div class="form-group">
+            <label for="file">Profile Image</label>
+            <input type="file" name="file" id="file" />
+          </div>-->
+          <button class="mt mb btn" type="submit">
+            Update Profile
+          </button>
+        </form>
       </div>
     </main>
     <!--footer-->
@@ -116,7 +111,6 @@
     </script>
     <!--Custom script-->
     <script src="./js/main.js"></script>
-    <script src="./js/logout.js"></script>
     <script src="./js/updateProfile.js"></script>
   </body>
 </html>
