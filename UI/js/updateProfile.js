@@ -17,9 +17,12 @@ firebase.auth().onAuthStateChanged((user) => {
 //logout
 document.querySelector('#logout').addEventListener('click', (e) => {
   e.preventDefault();
-  auth.signOut().then(() => {
-    window.location.href = 'login.html';
-  });
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      window.location.href = 'login.html';
+    });
 });
 //get it to update
 let urlParams = new URLSearchParams(location.search);

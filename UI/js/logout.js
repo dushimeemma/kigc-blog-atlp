@@ -12,6 +12,10 @@ auth.onAuthStateChanged((user) => {
           snapshot.val().firstName
         } ${snapshot.val().lastName}`;
       });
+    document.querySelector('#update-profile').addEventListener('click', (e) => {
+      window.location.href = 'updateProfile.html?id=' + user.uid;
+    });
+
     /*  firebase
       .database()
       .ref(`users/${user.uid}`)
