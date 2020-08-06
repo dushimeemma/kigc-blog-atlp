@@ -52,24 +52,28 @@
     <!--main-->
     <main>
       <div class="container form text-black">
-        <a href="dashboard.html">
+        <a href="articles.html">
           <img src="./images/back.png" alt="back" class="icon m-icon i-class" />
         </a>
-        <h3 class="text-center m-bottom capitalize">Add article</h3>
+        <h3 class="text-center m-bottom capitalize">Update Profile</h3>
         <hr />
-        <div class="errors text-center" id="errors"></div>
-        <form id="article-form">
+        <div class="errors" id="errors"></div>
+        <form id="update-form">
           <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" />
-            <div class="errors" id="titleErrors"></div>
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" id="fname" />
           </div>
           <div class="form-group">
-            <label for="password">Body</label>
-            <textarea name="body" id="body" cols="10" rows="3"></textarea>
-            <div class="errors" id="bodyErrors"></div>
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="lname" />
           </div>
-          <button class="mt btn mb" type="submit">Add Article</button>
+          <!--  <div class="form-group">
+            <label for="file">Profile Image</label>
+            <input type="file" name="file" id="file" />
+          </div>-->
+          <button class="mt mb btn" type="submit">
+            Update Profile
+          </button>
         </form>
       </div>
     </main>
@@ -86,6 +90,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
     <!-- Firebase auth -->
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <!-- Firebase storage -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
 
     <script>
       // Your web app's Firebase configuration
@@ -105,7 +111,6 @@
     </script>
     <!--Custom script-->
     <script src="./js/main.js"></script>
-    <script src="./js/createArticle.js"></script>
-    <script src="./js/logout.js"></script>
+    <script src="./js/updateProfile.js"></script>
   </body>
 </html>

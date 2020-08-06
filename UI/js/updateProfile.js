@@ -14,51 +14,50 @@ firebase.auth().onAuthStateChanged((user) => {
     window.location.href = 'login.html';
   }
 });
-
+//logout
 document.querySelector('#logout').addEventListener('click', (e) => {
   e.preventDefault();
   auth.signOut().then(() => {
     window.location.href = 'login.html';
   });
 });
-//ref to firebase db
-let db = firebase.database();
-//get the id of article
+//get it to update
 let urlParams = new URLSearchParams(location.search);
 let id = urlParams.get('id');
-
-//get element
-let updateForm = document.querySelector('#update-form');
-let title = updateForm['title'];
-let body = updateForm['body'];
+//get form and input fields
+let updateProfile = document.querySelector('#update-form');
+let fname = updateProfile['fname'];
+let lname = updateProfile['lname'];
+let image = updateProfile['file'];
 let errors = document.querySelector('#errors');
 
-//get article to update
-db.ref('article')
-  .child(id)
+//get profile to update
+firebase
+  .database()
+  .ref(`users/${id}`)
   .on('value', (snapshot) => {
-    title.value = snapshot.val().title;
-    body.value = snapshot.val().body;
+    fname.value = snapshot.val().firstName;
+    lname.value = snapshot.val().lastName;
   });
 
-//update article
-updateForm.addEventListener('submit', (e) => {
+updateProfile.addEventListener('submit', (e) => {
   e.preventDefault();
-  db.ref('article')
-    .child(id)
-    .update({
-      title: title.value,
-      body: body.value,
+  firebase
+    .database()
+    .ref(`users/${id}`)
+    .set({
+      firstName: fname.value,
+      lastName: lname.value,
     })
     .then(() => {
       errors.style.display = 'block';
       errors.innerHTML =
-        '<p class="text-center capitalize success">Updated successfully</p>';
+        '<p class="text-center success">Updated Successfully</p>';
       setTimeout(() => errors.remove(), 5000);
     })
     .catch((err) => {
       errors.style.display = 'block';
-      errors.innerHTML = `<p class="text-center capitalize danger">${err.message}</p>`;
-      setTimeout(() => errors.remove());
+      errors.innerHTML = '<p class="text-center danger">Updated failed</p>';
+      setTimeout(() => errors.remove(), 5000);
     });
 });

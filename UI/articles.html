@@ -44,6 +44,7 @@
               <li class="text-capitalize">
                 <a href="index.html" id="logout">Logout</a>
               </li>
+              <li class="text-capitalize"></li>
             </ul>
           </nav>
         </div>
@@ -53,6 +54,7 @@
     <main class="main-dashboard text-black">
       <section class="dashboard-section">
         <ul>
+          <li class="text-center"><a id="img"></a></li>
           <li class="text-center">
             <a href="#" class="text-black">View Comments</a>
           </li>
@@ -67,7 +69,7 @@
             <a href="addArticle.html" class="text-black"> Add Article</a>
           </li>
           <li class="text-center">
-            <a href="#" class="text-black">Update Profile</a>
+            <a href="updateProfile.html" class="text-black">Update Profile</a>
           </li>
         </ul>
       </section>
@@ -208,6 +210,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
     <!-- Firebase auth -->
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <!-- Firebase storage -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
 
     <script>
       // Your web app's Firebase configuration
@@ -227,7 +231,6 @@
     </script>
     <!--Custom script-->
     <script src="./js/main.js"></script>
-    <script src="./js/logout.js"></script>
     <script src="./js/viewArticles.js"></script>
   </body>
 </html>
