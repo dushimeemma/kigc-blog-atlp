@@ -86,7 +86,7 @@ articleRef.on('value', (snapshot) => {
           firebase.auth().onAuthStateChanged((user) => {
             firebase
               .database()
-              .ref(`users/${user.uid}`)
+              .ref(`users/${snapshot.val().author}`)
               .on('value', (snapshotUser) => {
                 let p = document.createElement('p');
                 p.innerHTML = `&middot;${snapshot.val().comment} - by ${
