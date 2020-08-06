@@ -355,6 +355,12 @@ main .auth-form {
   border-bottom: 1px solid var(--back-color);
   padding: 0.5rem;
 }
+/*location*/
+.bottom-fixed {
+  position: fixed;
+  bottom: 10%;
+  left: 2rem;
+}
 .flex {
   display: flex;
   justify-content: start;
@@ -380,6 +386,11 @@ footer {
 }
 /*responsive media query*/
 @media (max-width: 1025px) {
+  /*location*/
+  .bottom-fixed {
+    position: relative;
+    left: 0;
+  }
   header {
     width: 100%;
     padding-right: 3rem;

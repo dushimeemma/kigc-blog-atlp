@@ -1,6 +1,6 @@
 //init firebase auth
 const auth = firebase.auth();
-const storage = firebase.storage();
+//const storage = firebase.storage();
 
 auth.onAuthStateChanged((user) => {
   if (user) {

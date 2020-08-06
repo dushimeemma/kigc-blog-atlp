@@ -54,7 +54,6 @@
     <main class="main-dashboard text-black">
       <section class="dashboard-section">
         <ul>
-          <li class="text-center"><a id="img"></a></li>
           <li class="text-center">
             <a href="#" class="text-black">View Comments</a>
           </li>
@@ -63,15 +62,16 @@
           </li>
 
           <li class="text-center">
-            <a href="#" class="text-black">View Questions</a>
+            <a href="dashboard.html" class="text-black">View Questions</a>
           </li>
           <li class="text-center">
             <a href="addArticle.html" class="text-black"> Add Article</a>
           </li>
           <li class="text-center">
-            <a href="updateProfile.html" class="text-black">Update Profile</a>
+            <a class="text-black pointer" id="update-profile">Update Profile</a>
           </li>
         </ul>
+        <a class="bottom-fixed text-center" id="locate-me"></a>
       </section>
       <aside class="dashboard-aside container p">
         <h3 class="text-center capitalize mb">all articles</h3>
@@ -232,5 +232,7 @@
     <!--Custom script-->
     <script src="./js/main.js"></script>
     <script src="./js/viewArticles.js"></script>
+    <script src="./js/locateMe.js"></script>
+    <script src="./js/logout.js"></script>
   </body>
 </html>

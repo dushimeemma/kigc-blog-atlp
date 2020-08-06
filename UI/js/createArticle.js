@@ -1,3 +1,29 @@
+//init firebase auth
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    firebase
+      .database()
+      .ref(`users/${user.uid}`)
+      .on('value', (snapshot) => {
+        document.querySelector('#username').innerHTML = `${
+          snapshot.val().firstName
+        } ${snapshot.val().lastName}`;
+      });
+  } else {
+    window.location.href = 'login.html';
+  }
+});
+//logout
+document.querySelector('#logout').addEventListener('click', (e) => {
+  e.preventDefault();
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      window.location.href = 'login.html';
+    });
+});
 //get element
 let articleForm = document.querySelector('#article-form');
 let title = articleForm['title'];
