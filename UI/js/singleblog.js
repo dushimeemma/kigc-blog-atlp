@@ -3,24 +3,22 @@ let urlParams = new URLSearchParams(location.search);
 let id = urlParams.get('id');
 
 //reference to firebase
-let db = firebase.database();
 let articleRef = db.ref('article').child(id);
 
 //display an article in html
 articleRef.on('value', (snapshot) => {
+  let articles = snapshot.val();
   let article = document.createElement('article');
   article.classList.add('blog-content');
   article.classList.add('text-black');
   article.classList.add('border-radius');
   article.classList.add('p');
   article.classList.add('mt');
-  firebase.auth().onAuthStateChanged((user) => {
+  auth.onAuthStateChanged((user) => {
     if (user) {
-      article.innerHTML = `          <h3 class="m-bottom capitalize">${
-        snapshot.val().title
-      }</h3>
+      article.innerHTML = `          <h3 class="m-bottom capitalize">${articles.title}</h3>
       <p class="m-bottom">
-       ${snapshot.val().body}
+       ${articles.body}
       </p>
       <h6 class="text-center capitalize m-bottom">leave your comment here</h6>
       <div class="errors text-center" id="errors"></div>
@@ -35,11 +33,9 @@ articleRef.on('value', (snapshot) => {
     <h3 class="text-center">Comments</h3> <hr/>
 </div>`;
     } else {
-      article.innerHTML = `<h3 class="m-bottom capitalize">${
-        snapshot.val().title
-      }</h3>
+      article.innerHTML = `<h3 class="m-bottom capitalize">${articles.title}</h3>
       <p class="m-bottom">
-       ${snapshot.val().body}
+       ${articles.body}
       </p>`;
     }
     //allow user to leave a comment
@@ -55,11 +51,9 @@ articleRef.on('value', (snapshot) => {
         setTimeout(() => errors.remove(), 5000);
         formComment.reset();
       } else {
-        firebase.auth().onAuthStateChanged((user) => {
+        auth.onAuthStateChanged((user) => {
           if (user) {
-            firebase
-              .database()
-              .ref(`comments/${id}`)
+            db.ref(`comments/${id}`)
               .push()
               .set({
                 comment: comment.value,
@@ -76,27 +70,22 @@ articleRef.on('value', (snapshot) => {
       }
     });
     //show comments
-    document.querySelector('#view').addEventListener('click', (e) => {
+    let views = document.querySelector('#view');
+    views.addEventListener('click', (e) => {
       let com = document.querySelector('#comment-area');
       com.style.display = 'block';
-      firebase
-        .database()
-        .ref(`comments/${id}`)
-        .on('child_added', (snapshot) => {
-          firebase.auth().onAuthStateChanged((user) => {
-            firebase
-              .database()
-              .ref(`users/${snapshot.val().author}`)
-              .on('value', (snapshotUser) => {
-                let p = document.createElement('p');
-                p.innerHTML = `&middot;${snapshot.val().comment} - by ${
-                  snapshotUser.val().firstName
-                } ${snapshotUser.val().lastName}<hr/>`;
-                com.appendChild(p);
-              });
+      db.ref(`comments/${id}`).on('child_added', (snapshot) => {
+        let comments = snapshot.val();
+        auth.onAuthStateChanged((user) => {
+          db.ref(`users/${comments.author}`).on('value', (snapshotUser) => {
+            let authors = snapshotUser.val();
+            let p = document.createElement('p');
+            p.innerHTML = `&middot;${comments.comment} - by ${authors.firstName} ${authors.lastName}<hr/>`;
+            com.appendChild(p);
           });
         });
-      document.querySelector('#view').addEventListener('click', (e) => {
+      });
+      views.addEventListener('click', (e) => {
         com.style.display = 'none';
         window.location.href = 'singleblog.html?id=' + id;
       });

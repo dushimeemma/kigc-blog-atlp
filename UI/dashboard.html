@@ -35,16 +35,15 @@
               class="close"
               id="close"
             />
-            <ul>
-              <li class="text-capitalize">
-                <a href="dashboard.html"
-                  >Welcome <strong id="username"></strong>
-                </a>
+            <ul id="nav-links">
+              <!--  <li>
+                <a href="index.html" class="nav-link active">Home</a>
               </li>
-              <li class="text-capitalize">
-                <a href="index.html" id="logout">Logout</a>
-              </li>
-              <li class="text-capitalize"></li>
+              <li><a href="contact.html" class="nav-link">Contact</a></li>
+              <li><a href="about.html" class="nav-link">About</a></li>
+              <li><a href="blog.html" class="nav-link">Blog</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="register.html">Register</a></li>-->
             </ul>
           </nav>
         </div>
@@ -55,14 +54,11 @@
       <section class="dashboard-section">
         <ul>
           <li class="text-center">
-            <a href="#" class="text-black">View Comments</a>
-          </li>
-          <li class="text-center">
-            <a href="articles.html" class="text-black">View Articles</a>
+            <a href="#" class="text-black" id="viewA">View Articles</a>
           </li>
 
           <li class="text-center">
-            <a href="dashboard.html" class="text-black">View Questions</a>
+            <a href="# " class="text-black" id="viewQ">View Questions</a>
           </li>
           <li class="text-center">
             <a href="addArticle.html" class="text-black"> Add Article</a>
@@ -73,128 +69,30 @@
         </ul>
         <a class="bottom-fixed text-center" id="locate-me"></a>
       </section>
-      <aside class="dashboard-aside container p">
-        <h3 class="text-center capitalize mb">all questions</h3>
-        <table class="text-center" id="my-table">
-          <tr>
-            <th>Email</th>
-            <th>Question</th>
-            <th>Action</th>
-          </tr>
-
-          <!--     <tr>
-              <td>1</td>
-              <td>Post One</td>
-              <td>
-                <img
-                  src="./images/delete-2.jpg"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-                <img
-                  src="./images/update-1.png"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-              </td>
-            </tr>
+      <aside class="dashboard-aside p">
+        <div class="display-entries">
+          <div class="count" id="count-questions"></div>
+          <div class="count" id="count-articles"></div>
+        </div>
+        <div class="tables-area" id="question">
+          <h3 class="text-center mb">All Questions</h3>
+          <table class="text-center" id="my-table">
             <tr>
-              <td>2</td>
-              <td>Post Two</td>
-              <td>
-                <img
-                  src="./images/delete-2.jpg"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-                <img
-                  src="./images/update-1.png"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-              </td>
+              <th>Email</th>
+              <th>Question</th>
+              <th>Action</th>
             </tr>
+          </table>
+        </div>
+        <div class="tables-area" id="article">
+          <h3 class="text-center mb">All Articles</h3>
+          <table class="text-center" id="table-article">
             <tr>
-              <td>3</td>
-              <td>Post Three</td>
-              <td>
-                <img
-                  src="./images/delete-2.jpg"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-                <img
-                  src="./images/update-1.png"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-              </td>
+              <th>Title</th>
+              <th>Action</th>
             </tr>
-            <tr>
-              <td>4</td>
-              <td>Post Four</td>
-              <td>
-                <img
-                  src="./images/delete-2.jpg"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-                <img
-                  src="./images/update-1.png"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Post Five</td>
-              <td>
-                <img
-                  src="./images/delete-2.jpg"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-                <img
-                  src="./images/update-1.png"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Post Six</td>
-              <td>
-                <img
-                  src="./images/delete-2.jpg"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-                <img
-                  src="./images/update-1.png"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Post Seven</td>
-              <td>
-                <img
-                  src="./images/delete-2.jpg"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-                <img
-                  src="./images/update-1.png"
-                  alt="delete"
-                  class="icon i-class m-icon"
-                />
-              </td>
-            </tr>-->
-        </table>
+          </table>
+        </div>
       </aside>
     </main>
     <!--footer-->
@@ -230,8 +128,6 @@
     </script>
     <!--Custom script-->
     <script src="./js/main.js"></script>
-    <script src="./js/logout.js"></script>
     <script src="./js/storeQueries.js"></script>
-    <script src="./js/locateMe.js"></script>
   </body>
 </html>

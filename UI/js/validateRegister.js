@@ -1,6 +1,3 @@
-//reference auth firebase database
-const auth = firebase.auth();
-const storage = firebase.storage();
 const db = firebase.database();
 //function to validate email
 function validateEmail(email) {

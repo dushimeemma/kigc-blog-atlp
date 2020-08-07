@@ -1,5 +1,4 @@
 //create reference to firebase
-let db = firebase.database();
 let articleRef = db.ref('article');
 
 //display article on blog app
