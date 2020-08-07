@@ -74,25 +74,43 @@ articlesRef.on('child_added', (snapshot) => {
 });
 //delete questions
 function onClickDelete(id) {
-  queriesRef
-    .child(id)
-    .remove()
-    .then(() => {
-      window.location.href = 'dashboard.html';
-    });
+  auth.onAuthStateChanged((user) => {
+    if (user.email === 'dushimeemma@gmail.com') {
+      queriesRef
+        .child(id)
+        .remove()
+        .then(() => {
+          window.location.href = 'dashboard.html';
+        });
+    } else {
+      alert('you are not system admin');
+    }
+  });
 }
 //delete articles
 function onClickDeleteA(id) {
-  articlesRef
-    .child(id)
-    .remove()
-    .then(() => {
-      window.location.href = 'dashboard.html';
-    });
+  auth.onAuthStateChanged((user) => {
+    if (user.email === 'dushimeemma@gmail.com') {
+      articlesRef
+        .child(id)
+        .remove()
+        .then(() => {
+          window.location.href = 'dashboard.html';
+        });
+    } else {
+      alert('you are not system admin');
+    }
+  });
 }
 //update article
 function onClickUpdate(id) {
-  window.location.href = 'updateArticle.html?id=' + id;
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      window.location.href = 'updateArticle.html?id=' + id;
+    } else {
+      alert('you are not system admin');
+    }
+  });
 }
 //update profile
 let updateBtn = document.querySelector('#update-profile');
@@ -126,6 +144,4 @@ if ('geolocation' in navigator) {
       console.log(err);
     }
   );
-} else {
-  console.log('not working for now');
 }

@@ -22,23 +22,30 @@ articleForm.addEventListener('submit', (e) => {
     bodyErrors.style.display = 'none';
     title.style.border = 'var(--success)';
     body.style.border = 'var(--success)';
-    articleRef
-      .push()
-      .set({
-        title: title.value,
-        body: body.value,
-      })
-      .then(() => {
-        errors.style.display = 'block';
-        errors.innerHTML =
-          '<p class="text-center capitalize success">article successfully inserted</p>';
-        articleForm.reset();
-        setTimeout(() => errors.remove(), 5000);
-      })
-      .catch((err) => {
-        errors.style.display = 'block';
-        errors.innerHTML = `<p class="text-center capitalize danger">${err.message}</p>`;
-        setTimeout(() => errors.remove(), 5000);
-      });
+    auth.onAuthStateChanged((user) => {
+      console.log(user.email);
+      if (user.email === 'dushimeemma@gmail.com') {
+        articleRef
+          .push()
+          .set({
+            title: title.value,
+            body: body.value,
+          })
+          .then(() => {
+            errors.style.display = 'block';
+            errors.innerHTML =
+              '<p class="text-center capitalize success">article successfully inserted</p>';
+            articleForm.reset();
+            setTimeout(() => errors.remove(), 5000);
+          })
+          .catch((err) => {
+            errors.style.display = 'block';
+            errors.innerHTML = `<p class="text-center capitalize danger">${err.message}</p>`;
+            setTimeout(() => errors.remove(), 5000);
+          });
+      } else {
+        alert('you are not the system admin');
+      }
+    });
   }
 });

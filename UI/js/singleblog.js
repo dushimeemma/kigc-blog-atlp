@@ -27,7 +27,7 @@ articleRef.on('value', (snapshot) => {
           <textarea name="comment" cols="10" rows="3" id="comment"></textarea
           >
         </div>
-        <img src="./images/viewcomment.png" alt="view comment" class="icon m-icon i-class" id="view" /><img src="./images/close.png" alt="view comment" class="icon m-icon i-class errors" id="close-comment" /> <button class="float-right mb">Comment</button>
+       <h6 id="view" class="pointer"><u>View all comments</u></h6> <button class="float-right mb">Comment</button>
       </form>
 <div class="comment text-black" id="comment-area">
     <h3 class="text-center">Comments</h3> <hr/>
