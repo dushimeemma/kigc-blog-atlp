@@ -1,5 +1,3 @@
-//init auth firebase
-const auth = firebase.auth();
 //function to validate email
 function validateEmail(email) {
   let re = /\S+@\S+\.\S+/;

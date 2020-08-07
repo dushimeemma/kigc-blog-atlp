@@ -359,6 +359,35 @@ main .auth-form {
 .comment {
   display: none;
 }
+/*number of entry*/
+.count {
+  width: 9rem;
+  height: 3rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  background: var(--back-color);
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.display-entries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 2rem;
+  margin-bottom: 2rem;
+}
+.tables-area {
+  width: 100%;
+}
+.tables-area table {
+  width: 100%;
+}
+#question {
+  display: none;
+}
 /*location*/
 .bottom-fixed {
   position: fixed;

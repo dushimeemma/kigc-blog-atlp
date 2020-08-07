@@ -1,29 +1,3 @@
-//init firebase auth
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    firebase
-      .database()
-      .ref(`users/${user.uid}`)
-      .on('value', (snapshot) => {
-        document.querySelector('#username').innerHTML = `${
-          snapshot.val().firstName
-        } ${snapshot.val().lastName}`;
-      });
-  } else {
-    window.location.href = 'login.html';
-  }
-});
-
-document.querySelector('#logout').addEventListener('click', (e) => {
-  e.preventDefault();
-  auth.signOut().then(() => {
-    window.location.href = 'login.html';
-  });
-});
-//ref to firebase db
-let db = firebase.database();
-//get the id of article
 let urlParams = new URLSearchParams(location.search);
 let id = urlParams.get('id');
 
@@ -44,21 +18,27 @@ db.ref('article')
 //update article
 updateForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  db.ref('article')
-    .child(id)
-    .update({
-      title: title.value,
-      body: body.value,
-    })
-    .then(() => {
-      errors.style.display = 'block';
-      errors.innerHTML =
-        '<p class="text-center capitalize success">Updated successfully</p>';
-      setTimeout(() => errors.remove(), 5000);
-    })
-    .catch((err) => {
-      errors.style.display = 'block';
-      errors.innerHTML = `<p class="text-center capitalize danger">${err.message}</p>`;
-      setTimeout(() => errors.remove());
-    });
+  auth.onAuthStateChanged((user) => {
+    if (user.email === 'dushimemma@gmail.com') {
+      db.ref('article')
+        .child(id)
+        .update({
+          title: title.value,
+          body: body.value,
+        })
+        .then(() => {
+          errors.style.display = 'block';
+          errors.innerHTML =
+            '<p class="text-center capitalize success">Updated successfully</p>';
+          setTimeout(() => errors.remove(), 5000);
+        })
+        .catch((err) => {
+          errors.style.display = 'block';
+          errors.innerHTML = `<p class="text-center capitalize danger">${err.message}</p>`;
+          setTimeout(() => errors.remove());
+        });
+    } else {
+      alert('you are not the system admin');
+    }
+  });
 });
