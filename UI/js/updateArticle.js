@@ -18,21 +18,27 @@ db.ref('article')
 //update article
 updateForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  db.ref('article')
-    .child(id)
-    .update({
-      title: title.value,
-      body: body.value,
-    })
-    .then(() => {
-      errors.style.display = 'block';
-      errors.innerHTML =
-        '<p class="text-center capitalize success">Updated successfully</p>';
-      setTimeout(() => errors.remove(), 5000);
-    })
-    .catch((err) => {
-      errors.style.display = 'block';
-      errors.innerHTML = `<p class="text-center capitalize danger">${err.message}</p>`;
-      setTimeout(() => errors.remove());
-    });
+  auth.onAuthStateChanged((user) => {
+    if (user.email === 'dushimemma@gmail.com') {
+      db.ref('article')
+        .child(id)
+        .update({
+          title: title.value,
+          body: body.value,
+        })
+        .then(() => {
+          errors.style.display = 'block';
+          errors.innerHTML =
+            '<p class="text-center capitalize success">Updated successfully</p>';
+          setTimeout(() => errors.remove(), 5000);
+        })
+        .catch((err) => {
+          errors.style.display = 'block';
+          errors.innerHTML = `<p class="text-center capitalize danger">${err.message}</p>`;
+          setTimeout(() => errors.remove());
+        });
+    } else {
+      alert('you are not the system admin');
+    }
+  });
 });
