@@ -1,3 +1,4 @@
+const viewProfile = document.querySelector('#profile-modal');
 const menu = document.getElementById('menu');
 const closeBtn = document.getElementById('close');
 const nav = document.getElementById('nav');
@@ -39,6 +40,10 @@ firebase.auth().onAuthStateChanged((user) => {
         snapshot.val().lastName
       }`;
     });
+    userWelcome.addEventListener('click', (e) => {
+      e.preventDefault();
+      viewProfile.style.display = 'block';
+    });
     let logout = document.querySelector('#logout');
     logout.addEventListener('click', (e) => {
       e.preventDefault();
@@ -48,5 +53,27 @@ firebase.auth().onAuthStateChanged((user) => {
     });
   } else {
     navLinks.innerHTML = guestLinks;
+  }
+});
+//close model profile
+let userProfile = document.querySelector('#close-profile');
+//edit profile from modal profile
+let editProfile = document.querySelector('#edit-profile');
+userProfile.addEventListener('click', (e) => {
+  viewProfile.style.display = 'none';
+});
+//display the name of the current user
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    db.ref(`users/${user.uid}`).on('value', (snapshot) => {
+      let firstName = document.querySelector('#first-name');
+      let lastName = document.querySelector('#last-name');
+      let username = snapshot.val();
+      firstName.innerHTML = `${username.firstName}`;
+      lastName.innerHTML = `${username.lastName}`;
+      editProfile.addEventListener('click', (e) => {
+        window.location.href = 'updateProfile.html?id=' + user.uid;
+      });
+    });
   }
 });

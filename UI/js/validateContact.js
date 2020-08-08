@@ -58,6 +58,7 @@ contactForm.addEventListener('submit', (e) => {
       .set({
         email: emailInput.value,
         message: messageInput.value,
+        status: 'unread',
       })
       .then(() => {
         errors.style.display = 'block';

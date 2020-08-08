@@ -53,18 +53,20 @@
     <main class="main-dashboard text-black">
       <section class="dashboard-section">
         <ul>
-          <li class="text-center">
-            <a href="#" class="text-black" id="viewA">View Articles</a>
+          <li>
+            <a href="#" class="text-black ml" id="viewA">View Articles</a>
           </li>
 
-          <li class="text-center">
-            <a href="# " class="text-black" id="viewQ">View Questions</a>
+          <li>
+            <a href="# " class="text-black ml" id="viewQ">View Questions</a>
           </li>
-          <li class="text-center">
-            <a href="addArticle.html" class="text-black"> Add Article</a>
+          <li>
+            <a href="addArticle.html" class="text-black ml"> Add Article</a>
           </li>
-          <li class="text-center">
-            <a class="text-black pointer" id="update-profile">Update Profile</a>
+          <li>
+            <a class="text-black pointer ml" id="update-profile"
+              >Update Profile</a
+            >
           </li>
         </ul>
 
@@ -72,7 +74,11 @@
       </section>
       <aside class="dashboard-aside p">
         <div class="display-entries">
-          <div class="count" id="count-questions"></div>
+          <div class="count">
+            <span id="count-questions"></span>
+            <span id="count-unread" class="float-right text-black">0</span>
+          </div>
+
           <div class="count" id="count-articles"></div>
         </div>
         <div class="tables-area" id="question">
@@ -94,7 +100,29 @@
             </tr>
           </table>
         </div>
+        <div class="tables-area" id="unread-question">
+          <h3 class="text-center mb">Unread Questions</h3>
+          <table class="text-center" id="unread-table">
+            <tr>
+              <th>status</th>
+            </tr>
+          </table>
+        </div>
       </aside>
+      <div class="profile-popup" id="profile-modal">
+        <img src="./images//no-profile.jpg" alt="profile picture" />
+        <p>
+          <span
+            >First Name: <strong id="first-name" class="capitalize"></strong
+          ></span>
+          <br />
+          <span
+            >Last Name: <strong id="last-name" class="capitalize"></strong
+          ></span>
+        </p>
+        <button id="edit-profile">Edit</button
+        ><button class="float-right" id="close-profile">Close</button>
+      </div>
     </main>
     <!--footer-->
     <footer>
