@@ -419,6 +419,9 @@ main .auth-form {
 .profile-popup button {
   width: 5rem !important;
 }
+#close-profile {
+  background: var(--danger);
+}
 /*location*/
 .bottom-fixed {
   position: fixed;
