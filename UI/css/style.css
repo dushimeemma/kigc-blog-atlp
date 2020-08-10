@@ -385,8 +385,42 @@ main .auth-form {
 .tables-area table {
   width: 100%;
 }
-#question {
+#question,
+#unread-question {
   display: none;
+}
+#count-unread {
+  background: var(--text-color);
+  border-radius: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+/*profile details*/
+.profile-popup {
+  width: 25rem;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 30%;
+  z-index: 2;
+  background: var(--form-background);
+  padding: 2rem 2rem 2rem 2rem;
+  height: 50vh;
+  border: 1px solid var(--back-color);
+  display: none;
+  color: var(--back-color);
+}
+.profile-popup img {
+  width: 100%;
+  height: 50%;
+  cursor: pointer;
+}
+.profile-popup button {
+  width: 5rem !important;
+}
+#close-profile {
+  background: var(--danger);
 }
 /*location*/
 .bottom-fixed {
@@ -438,7 +472,12 @@ footer {
   }
 }
 @media (max-width: 600px) {
+  /*profile details*/
+  .profile-popup {
+    left: 0%;
+  }
   .auth-footer {
+    width: 100%;
     min-height: 75vh;
   }
   header {

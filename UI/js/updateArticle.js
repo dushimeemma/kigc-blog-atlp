@@ -19,7 +19,7 @@ db.ref('article')
 updateForm.addEventListener('submit', (e) => {
   e.preventDefault();
   auth.onAuthStateChanged((user) => {
-    if (user.email === 'dushimemma@gmail.com') {
+    if (user.email === 'dushimeemma@gmail.com') {
       db.ref('article')
         .child(id)
         .update({
@@ -38,7 +38,7 @@ updateForm.addEventListener('submit', (e) => {
           setTimeout(() => errors.remove());
         });
     } else {
-      alert('you are not the system admin');
+      alert('access denied, you are not system admin');
     }
   });
 });

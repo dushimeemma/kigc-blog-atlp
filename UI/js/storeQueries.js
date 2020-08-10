@@ -28,7 +28,24 @@ queriesRef.on('child_added', (snapshot) => {
     `<td><img src="./images/delete-2.jpg" class="m-icon pointer icon"onclick="onClickDelete('` +
     id +
     `')"/></td>`;
-
+  //mark query as read
+  cell2.style.cursor = 'pointer';
+  cell2.addEventListener('click', (e) => {
+    auth.onAuthStateChanged((user) => {
+      if (user.email === 'dushimeemma@gmail.com') {
+        queriesRef
+          .child(id)
+          .update({
+            status: 'read',
+          })
+          .then(() => {
+            window.location.href = 'dashboard.html';
+          });
+      } else {
+        alert('access denied, not system admin');
+      }
+    });
+  });
   let count = tableQuestions.rows.length;
   let displayCount = document.querySelector('#count-questions');
   displayCount.innerHTML = `${count - 1} Questions`;
@@ -42,7 +59,7 @@ queriesRef.on('child_added', (snapshot) => {
 //init ref to firebase database
 const articlesRef = db.ref('article');
 
-//retrieve queries from db and display it to a table
+//retrieve articles from db and display it to a table
 articlesRef.on('child_added', (snapshot) => {
   let title = snapshot.val().title;
   let body = snapshot.val().body;
@@ -83,7 +100,7 @@ function onClickDelete(id) {
           window.location.href = 'dashboard.html';
         });
     } else {
-      alert('you are not system admin');
+      alert('access denied, not system admin');
     }
   });
 }
@@ -98,17 +115,17 @@ function onClickDeleteA(id) {
           window.location.href = 'dashboard.html';
         });
     } else {
-      alert('you are not system admin');
+      alert('access denied, not system admin');
     }
   });
 }
 //update article
 function onClickUpdate(id) {
   auth.onAuthStateChanged((user) => {
-    if (user) {
+    if ((user.email = 'dushimeemma@gmail.com')) {
       window.location.href = 'updateArticle.html?id=' + id;
     } else {
-      alert('you are not system admin');
+      alert('access denied, not system admin');
     }
   });
 }
@@ -145,3 +162,16 @@ if ('geolocation' in navigator) {
     }
   );
 }
+//retrieve unread queries
+queriesRef
+  .orderByChild('status')
+  .equalTo('unread')
+  .on('child_added', (snapshot) => {
+    let tableUnread = document.querySelector('#unread-table');
+    let row = tableUnread.insertRow(tableUnread.rows.length);
+    let cell = row.insertCell(0);
+    cell.innerHTML = `${snapshot.val().status}`;
+    let count = tableUnread.rows.length - 1;
+    let unreadQ = document.querySelector('#count-unread');
+    unreadQ.innerHTML = count;
+  });
