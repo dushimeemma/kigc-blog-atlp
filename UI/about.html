@@ -35,17 +35,15 @@
               class="close"
               id="close"
             />
-            <ul>
-              <li>
-                <a href="index.html" class="nav-link">Home</a>
+            <ul id="nav-links">
+              <!--  <li>
+                <a href="index.html" class="nav-link active">Home</a>
               </li>
-              <li>
-                <a href="contact.html" class="nav-link">Contact</a>
-              </li>
-              <li><a href="about.html" class="nav-link active">About</a></li>
+              <li><a href="contact.html" class="nav-link">Contact</a></li>
+              <li><a href="about.html" class="nav-link">About</a></li>
               <li><a href="blog.html" class="nav-link">Blog</a></li>
               <li><a href="login.html">Login</a></li>
-              <li><a href="register.html">Register</a></li>
+              <li><a href="register.html">Register</a></li>-->
             </ul>
           </nav>
         </div>
@@ -79,29 +77,74 @@
       <div class="container">
         <p class="m-bottom m-top capitalize text-black ml flex">
           <span class="font text-black">Follow us on:</span>
-          <a href="https://www.linkedin.com/in/emma-papy-dushime-7b9907147/"
+          <a
+            href="https://www.linkedin.com/in/emma-papy-dushime-7b9907147/"
+            target="_blank"
             ><img
               src="./images/linkedin-2.png"
               alt="linkedin"
-              class="icon m-icon i-class" /></a
-          ><a href="https://web.facebook.com/emmapapy.dushime/">
+              class="icon m-icon" /></a
+          ><a href="https://web.facebook.com/emmapapy.dushime/" target="_blank">
             <img
               src="./images/face.png"
               alt="linkedin"
-              class="icon m-icon i-class" /></a
-          ><a href="https://www.instagram.com/papy_dushime/"
+              class="icon m-icon" /></a
+          ><a href="https://www.instagram.com/papy_dushime/" target="_blank"
             ><img
               src="./images/instagram-2.png"
               alt="linkedin"
-              class="icon m-icon i-class"
+              class="icon m-icon"
           /></a>
         </p>
+      </div>
+      <div class="profile-popup" id="profile-modal">
+        <img src="./images//no-profile.jpg" alt="profile picture" />
+        <p>
+          <span
+            >First Name:
+            <strong id="first-name" class="capitalize text-black"></strong
+          ></span>
+          <br />
+          <span
+            >Last Name:
+            <strong id="last-name" class="capitalize text-black"></strong
+          ></span>
+        </p>
+        <button id="edit-profile">Edit</button
+        ><button class="float-right" id="close-profile">Close</button>
       </div>
     </main>
     <!--footer-->
     <footer>
       <p class="text-center" id="footer"></p>
     </footer>
+    <!--  Firebase JS SDK  -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+    <!-- Firebase products -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <!-- Firebase database -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <!-- Firebase auth -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyD-lm5Q0AZj7uiZuOKaR9p0X_ycsIrSlaw',
+        authDomain: 'kigc-blog-atlp.firebaseapp.com',
+        databaseURL: 'https://kigc-blog-atlp.firebaseio.com',
+        projectId: 'kigc-blog-atlp',
+        storageBucket: 'kigc-blog-atlp.appspot.com',
+        messagingSenderId: '431213200581',
+        appId: '1:431213200581:web:cf1bd06d9f2ab5e5a81cac',
+        measurementId: 'G-GTS3GTVLHG',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <!--Custom script-->
     <script src="./js//main.js"></script>
   </body>
 </html>
